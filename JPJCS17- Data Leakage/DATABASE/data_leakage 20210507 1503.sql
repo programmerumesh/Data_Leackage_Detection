@@ -1,0 +1,108 @@
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.0.22-community-nt
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+--
+-- Create schema dataleakage
+--
+
+CREATE DATABASE IF NOT EXISTS dataleakage;
+USE dataleakage;
+
+--
+-- Definition of table `agentfile`
+--
+
+DROP TABLE IF EXISTS `agentfile`;
+CREATE TABLE `agentfile` (
+  `username` varchar(255) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `datafile` longblob NOT NULL,
+  `filename` varchar(255) NOT NULL,
+  `id` int(11) NOT NULL,
+  `date` datetime NOT NULL,
+  `sender` varchar(255) default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `agentfile`
+--
+
+/*!40000 ALTER TABLE `agentfile` DISABLE KEYS */;
+INSERT INTO `agentfile` (`username`,`subject`,`datafile`,`filename`,`id`,`date`,`sender`) VALUES 
+ ('hadhi','test',0x4F6E65206F6620746865206D6F737420776964656C7920757365642070726F6772616D6D696E67206C616E6775616765732C0D0A4A617661206973207573656420617320746865207365727665722D73696465206C616E677561676520666F72206D6F7374206261636B2D656E640D0A646576656C6F706D656E742070726F6A656374732C20696E636C7564696E672074686F736520696E766F6C76696E672062696720646174610D0A616E6420416E64726F696420646576656C6F706D656E742E,'Technology',2,'2021-05-07 03:00:13','abdul');
+/*!40000 ALTER TABLE `agentfile` ENABLE KEYS */;
+
+
+--
+-- Definition of table `file`
+--
+
+DROP TABLE IF EXISTS `file`;
+CREATE TABLE `file` (
+  `username` varchar(255) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `datafile` longblob NOT NULL,
+  `filename` varchar(255) NOT NULL,
+  `id` int(11) NOT NULL,
+  `date` datetime NOT NULL,
+  `key` int(11) NOT NULL,
+  `mode` varchar(255) default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `file`
+--
+
+/*!40000 ALTER TABLE `file` DISABLE KEYS */;
+INSERT INTO `file` (`username`,`subject`,`datafile`,`filename`,`id`,`date`,`key`,`mode`) VALUES 
+ ('abdul','test',0x4F6E65206F6620746865206D6F737420776964656C7920757365642070726F6772616D6D696E67206C616E6775616765732C0D0A4A617661206973207573656420617320746865207365727665722D73696465206C616E677561676520666F72206D6F7374206261636B2D656E640D0A646576656C6F706D656E742070726F6A656374732C20696E636C7564696E672074686F736520696E766F6C76696E672062696720646174610D0A616E6420416E64726F696420646576656C6F706D656E742E,'Technology',1,'2021-05-07 02:57:58',1487,'unlock');
+/*!40000 ALTER TABLE `file` ENABLE KEYS */;
+
+
+--
+-- Definition of table `register`
+--
+
+DROP TABLE IF EXISTS `register`;
+CREATE TABLE `register` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) character set latin1 collate latin1_bin NOT NULL,
+  `userid` int(11) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `emailid` varchar(255) NOT NULL,
+  PRIMARY KEY  (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `register`
+--
+
+/*!40000 ALTER TABLE `register` DISABLE KEYS */;
+INSERT INTO `register` (`id`,`username`,`userid`,`password`,`emailid`) VALUES 
+ (1,'abdul',1,'abdul','abdulhathi.jpinfotech@gmail.com'),
+ (2,'hadhi',2,'hadhi','abdulhathi.jpinfotech@gmail.com');
+/*!40000 ALTER TABLE `register` ENABLE KEYS */;
+
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
